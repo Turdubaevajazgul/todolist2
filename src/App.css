@@ -1,0 +1,17 @@
+.App{
+  border:  1px solid #c7acac;
+  border-radius: 5px;
+  width: 550px;
+  margin: 120px auto;
+} 
+.todoBody{
+  padding: 10px;
+}
+.todoItems{
+  border: 1px solid gray;
+  margin-top: 10px;
+}
+.todoItems > div:nth-child(even){
+  border: 1px solid gray;
+  margin-top: 10px;
+}

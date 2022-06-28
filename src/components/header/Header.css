@@ -1,0 +1,8 @@
+.Header_wrapper{ 
+	font-size: 22px;
+	padding: 15px 10px;
+	font-weight: 600;
+	background: #d6d3c9;
+	border-radius: 5px 5px 0px 0px;
+	border-bottom:2px solid rgb(142, 142, 142);
+}

@@ -1,0 +1,32 @@
+
+.radio{
+	display: flex;
+	justify-content: space-between;
+	padding: 15px;
+	align-items: center;
+} 
+#helloTodo{
+	margin-left: 15px;
+}
+.radio input{
+	margin-left: 15px;
+}
+.radio:nth-child(2n){
+	
+	background-color: silver;
+}
+.Edit{
+	margin-left: -20%;
+	color: white;
+background-color: #348a4b;
+border:1px solid #348a4b
+}
+.Del{
+	margin-left: 15%;
+	color: white;
+	background-color: #fc2b2b;
+	border:1px solid  #fc2b2b;
+}
+.checked{
+	text-decoration: line-through;
+}

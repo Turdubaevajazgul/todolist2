@@ -1,0 +1,24 @@
+form{
+   display: flex;
+   height: 10vh;
+   align-items: center;
+}
+
+ #firstButton{
+width: 100%;
+padding: 2%;
+ }
+ #firstButton:focus{
+	width: 100%;
+	padding: 2%;
+	border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+	 }
+ #secondButton{
+	padding: 2%;
+
+	background-color: #3452eb;
+	color: white;
+	border: 2px solid #3452eb;
+ }
