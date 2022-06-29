@@ -1,18 +1,30 @@
-import './App.css'; 
-import Header  from "./components/header/Header"
-import  Footer  from './components/footer/footer'
+import './App.css';
+import { useState } from 'react';
+import Header from "./components/header/Header"
+import Footer from './components/footer/footer'
 import CreatTodo from './components/creat-todo/CreatTodo'
 
 function App() {
+  const todoArr = [
+    { text: "Купи сахар !!!" ,status:false},
+    { text: "Купи соль !!!" ,status:true},
+]
+const [state,setState]= useState(todoArr)
   return (
     <div className="App">
       <Header />
       <div className='todoBody'>
-        <CreatTodo />
+        <CreatTodo state={state} setState={setState}/>
         <div className='todoItems'>
-          <Footer text='Azamat' age='22' months='june'/>
-          <Footer text='Aman'  age='23' months='jule'/>
-          <Footer checked={true} text='Aziz'  age='12' months='december'/>
+          {
+          /* <Footer checked={true} text='Aziz'  age='12' months='december'/> */
+          }
+          {
+            state.map((item) => <Footer text={item.text} checked={item.status} />)
+           
+          }
+        
+          
         </div>
 
 
@@ -25,3 +37,4 @@ function App() {
 }
 
 export default App;
+// onSubmit
