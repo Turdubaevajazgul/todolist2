@@ -1,8 +1,8 @@
 import './Header.css'
- function Header(){
+ function Header(props){
 	return (
 		<header className="Header_wrapper">
-			Todos (0 / 0)
+			Todos ({props.state.length}/{props.state.filter((it)=>it.status).length})
 		</header>
 	)
 }

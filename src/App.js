@@ -5,14 +5,16 @@ import Footer from './components/footer/footer'
 import CreatTodo from './components/creat-todo/CreatTodo'
 
 function App() {
+  
   const todoArr = [
     { text: "Купи сахар !!!" ,status:false},
     { text: "Купи соль !!!" ,status:true},
 ]
-const [state,setState]= useState(todoArr)
+const [state,setState] = useState(todoArr)
+
   return (
     <div className="App">
-      <Header />
+      <Header state={state} />
       <div className='todoBody'>
         <CreatTodo state={state} setState={setState}/>
         <div className='todoItems'>
