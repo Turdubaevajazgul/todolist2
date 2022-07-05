@@ -1,18 +1,27 @@
+
 import { useState } from 'react';
 import './creat-todo.css'
 
 function CreatTodo(props) {
 
-	const [inp, setInp] = useState()
+	const [inputValue, setInputValue] = useState("")
 
-	const submitA = (e) => {
-		e.preventDefault()
-		props.setState([...props.state, { text: inp, status: false }])
+	const FuncSubmitA = (event) => {
+		event.preventDefault()
+		props.addNew(inputValue)
+		setInputValue('')
 	}
 
+	const HandleValue = (event) => {
+		setInputValue(event.target.value)
+	}
+
+
 	return (
-		<form onSubmit={submitA}>
-			<input onChange={(event) => setInp(event.target.value)} type="text" name="" placeholder='Enter todo here' id="firstButton" />
+		<form onSubmit={FuncSubmitA}>
+			
+			<input value={inputValue} onChange={HandleValue} type="text" name="" placeholder='Enter todo here' id="firstButton" />
+
 			<input type="submit" value="submit" id='secondButton' />
 		</form>
 	)
