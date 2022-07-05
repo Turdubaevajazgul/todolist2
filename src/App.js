@@ -10,7 +10,7 @@ function App() {
   const todoArr = JSON.parse(localStorage.getItem('todo')) || []
 
   const [state, setState] = useState(todoArr)
-  
+
   console.log(state)
 
   useEffect(() => {
@@ -36,15 +36,15 @@ function App() {
   //   setState(newArrEdit)
   // }
 
-  const  editTodo=(id)=>{
-    const newArrEdit = state((item)=>{
+  const editTodo = (id) => {
+    const newArrEdit = state((item) => {
       return item.id !== id
     })
     setState(newArrEdit)
   }
 
 
- 
+
 
   const onCheck = (id) => {
     const newArr = state.map((item) => {
@@ -56,18 +56,30 @@ function App() {
     setState(newArr)
   }
 
+  const onEditText = (newText, id) => {
+    const newArr = state.map((todo) => {
+      if (todo.id === id) {
+        todo.text = newText;
+      }
+      return todo
+    })
+
+    setState(newArr)
+
+  }
+
   return (
     <div className="App">
 
       <Header state={state} />
 
       <div className='todoBody'>
-        
-        <CreatTodo 
-        addNew={addNewTodo} />
+
+        <CreatTodo
+          addNew={addNewTodo} />
 
         <div className='todoItems'>
-         
+
           {
             state.map((item) =>
               <Footer text={item.text}
@@ -76,7 +88,8 @@ function App() {
 
                 onDelete={deleteTodo}
                 onEdit={editTodo}
-                onCheck={onCheck} />)
+                onCheck={onCheck}
+                onEditText={onEditText} />)
           }
 
 

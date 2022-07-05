@@ -6,17 +6,21 @@ import './footer.css'
 let Footer = (props) => {
 
 	const [state, setState] = useState(false)
-
-
+	const [inpVal, setInpVal] = useState(props.text)
 
 
 	const onDelete = () => {
 		props.onDelete(props.id)
 	}
 
-
+	const editSubmit = (event) => {
+		event.preventDefault()
+		props.onEditText(inpVal, props.id)
+		setState(false)
+	}
 
 	const handleCheck = () => {
+		
 		props.onCheck(props.id)
 	}
 
@@ -29,9 +33,16 @@ let Footer = (props) => {
 			{
 				state
 					?
-					<form onSubmit={props.FuncSubmitA}>
+					<form onSubmit={editSubmit}>
 
-						<input value={props.setState} onChange={props.HandleValue} type="text" name="" placeholder='Enter todo here' id="firstButton" />
+						<input
+							value={inpVal}
+							onChange={(e) => setInpVal(e.target.value)}
+							type="text"
+
+							placeholder='Enter todo here'
+							id="firstButton"
+						/>
 
 						<input type="submit" value="submit" id='secondButton' />
 
@@ -49,7 +60,7 @@ let Footer = (props) => {
 			<div >
 
 
-				<input onClick={() => setState(!state)} type="submit" value="Edit" className='Edit' />
+				<input onClick={(onEdit) => setState(!state)} type="submit" value="Edit" className='Edit' />
 
 				<input onClick={onDelete} type="submit" value="Del" className='Del' />
 			</div>
@@ -58,3 +69,4 @@ let Footer = (props) => {
 }
 export default Footer;
 
+// () => setState(!state)
